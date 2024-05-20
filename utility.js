@@ -81,3 +81,30 @@ export function createOptionElement(value, name) {
     element.innerText = name;
     return element;
 };
+
+/**
+ * Sets the theme properties.
+ * @param {string | File } theme - The theme to set ('night' or 'day').
+ */
+export const setThemeProperties = (theme) => {
+    if (theme === 'night') {
+        document.documentElement.style.setProperty('--color-dark', '255, 255, 255');
+        document.documentElement.style.setProperty('--color-light', '10, 10, 20');
+    } else {
+        document.documentElement.style.setProperty('--color-dark', '10, 10, 20');
+        document.documentElement.style.setProperty('--color-light', '255, 255, 255');
+    };
+};
+
+/**
+ * Applies the user's preferred theme based on their system settings.
+ */
+export const applyPreferredTheme = () => {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        htmlElements.setting.dataSettingTheme.value = 'night';
+        setThemeProperties('night');
+    } else {
+        htmlElements.setting.dataSettingTheme.value = 'day';
+        setThemeProperties('day');
+    };
+};
