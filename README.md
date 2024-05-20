@@ -37,3 +37,41 @@ After completing the tasks, prepare a brief presentation for your coaching group
 Submit the refactored version of the "Book Connect" application, including all HTML, CSS, and JavaScript files. Ensure that your code is well-documented and adheres to the specified Styleguides. Include a written report covering the discussion and reflection points outlined above.
 
 Make sure to submit your project to the LMS on the DJS03 Project Tab.
+
+# Book Search Application
+
+This repository contains the code for a simple book search application that allows users to search for books based on title, author, and genre. It also includes theme settings and pagination features.
+
+## Dependencies
+
+- `data.js`: Contains the raw data for books, authors, genres, and the constant `BOOKS_PER_PAGE`.
+- `utility.js`: Contains various utility functions for rendering book previews, setting up genre and author options, applying theme properties, showing more results, and handling list item clicks.
+- `elements.js`: Contains references to HTML elements used in the application.
+
+## Functionality
+
+### Features:
+
+- **Search functionality**: Users can search for books by title, author, and genre. The search results are displayed in a list of book previews.
+- **Pagination**: Users can view more search results by clicking the "show more" button.
+- **Theme settings**: Users can customize the app's theme using the theme settings form.
+
+### Key Functions
+
+- `handleListItemOnClick`: Handles user clicks on book previews in the search results list.
+- `initialization`: Initializes the app by setting up author and genre options, rendering the first page of book previews, and showing the "show more" button if necessary.
+- `applyPreferredTheme`: Applies the user's preferred theme properties to the application.
+
+## Challenges
+
+- The search button functionality implementation.
+- Error Handling: The code might not handle unexpected user input or data errors gracefully.
+
+## Improvements
+
+- Implement robust error handling to manage issues gracefully and provide feedback to the user.
+- Enhance the user experience, especially with features like theme switching and search filters.
+
+## Feedback
+
+This project posed several challenges, especially in understanding and implementing certain functionalities. Additional research and tutorials helped in overcoming these hurdles. Moving forward, improving error handling and enhancing the user experience would be beneficial.
