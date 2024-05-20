@@ -5,6 +5,76 @@ import { htmlElements } from './elements.js';
 let page = 1;
 let matches = books
 
+
+htmlElements.search.dataSearchCancel.addEventListener('click', () => {
+    htmlElements.search.dataSearchOverlay.open = false;
+});
+
+htmlElements.setting.dataSettingCancel.addEventListener('click', () => {
+    htmlElements.setting.dataSettingOverlay.open = false;
+});
+
+htmlElements.header.dataHeaderSearch.addEventListener('click', () => {
+    htmlElements.search.dataSearchOverlay.open = true ;
+    htmlElements.search.dataSearchTitle.focus();
+});
+
+htmlElements.header.dataHeaderSetting.addEventListener('click', () => {
+    htmlElements.setting.dataSettingOverlay.open = true ;
+});
+
+htmlElements.list.dataListClose.addEventListener('click', () => {
+    htmlElements.list.dataListActive.open = false;
+});
+
+htmlElements.setting.dataSettingForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const { theme } = Object.fromEntries(formData);
+
+    setThemeProperties(theme);
+    
+    htmlElements.setting.dataSettingOverlay.open = false;
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const starting = document.createDocumentFragment()
 
 for (const { author, id, image, title } of matches.slice(0, BOOKS_PER_PAGE)) {
