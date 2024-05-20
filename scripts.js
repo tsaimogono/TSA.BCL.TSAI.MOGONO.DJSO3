@@ -88,6 +88,21 @@ htmlElements.list.dataListButton.addEventListener('click', () => {
     showMoreButton(page, matches);
 });
 
+htmlElements.list.dataListItem.addEventListener('click', (event) => {
+    handleListItemOnClick(event);
+});
+
+function initialization() {
+    const starting = document.createDocumentFragment();
+    renderBookPreviews(starting, matches.slice(0, BOOKS_PER_PAGE));
+
+    setupAuthorOptions();
+    setupGenreOptions();
+    showMoreButton(page, matches);
+};
+
+initialization();
+applyPreferredTheme();
 
 
 
