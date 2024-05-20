@@ -28,3 +28,29 @@ export const createBookElement = (book) => {
     `;
     return element;
 }
+
+/**
+ * Renders book previews.
+ * @param {DocumentFragment} documentFragment - The document fragment to append book elements to.
+ * @param {Object[]} bookList - The list of books to render.
+ */
+export const renderBookPreviews = (documentFragment, bookList) => {
+    for ( const book of bookList) {
+        documentFragment.appendChild(createBookElement(book));
+    };
+    htmlElements.list.dataListItem.appendChild(documentFragment);
+};
+
+/**
+ * Sets up genre options in the search form.
+ */
+export const setupGenreOptions = () => {
+    const genreHtml = document.createDocumentFragment()
+    genreHtml.appendChild(createOptionElement('any', 'All Genres'))
+
+    for (const [id, name] of Object.entries(genres)) {
+        genreHtml.appendChild(createOptionElement(id, name));
+    }
+
+htmlElements.search.dataSearchGenre.appendChild(genreHtml)
+}
