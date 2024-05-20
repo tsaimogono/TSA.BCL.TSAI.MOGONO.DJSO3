@@ -54,3 +54,30 @@ export const setupGenreOptions = () => {
 
 htmlElements.search.dataSearchGenre.appendChild(genreHtml)
 }
+
+/**
+ * Sets up author options in the search form.
+ */
+export const setupAuthorOptions = () => {
+    const authorsHtml = document.createDocumentFragment();
+    authorsHtml.appendChild(createOptionElement('any', 'All Authors'));
+
+    for (const [id, name] of Object.entries(authors)) {
+        authorsHtml.appendChild(createOptionElement(id, name))
+    }
+
+    htmlElements.search.dataSearchAuthor.appendChild(authorsHtml)
+};
+
+/**
+ * Creates an option element.
+ * @param {string} value - The value of the option.
+ * @param {string} name - The display name of the option.
+ * @returns {HTMLOptionElement} The option element.
+ */
+export function createOptionElement(value, name) {
+    const element = document.createElement('option');
+    element.value = value;
+    element.innerText = name;
+    return element;
+};
