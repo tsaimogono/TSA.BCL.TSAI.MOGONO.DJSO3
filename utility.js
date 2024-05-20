@@ -1,3 +1,5 @@
+
+// Importing data and HTML elements
 import { books, authors, genres, BOOKS_PER_PAGE } from './data.js';
 import { htmlElements } from './elements.js';
 
@@ -127,12 +129,14 @@ export const handleListItemOnClick = (event) => {
     const pathArray = Array.from(event.path || event.composedPath());
     let active = null;
 
+    // Traverse through the event path to find the clicked list item
     for (const node of pathArray) {
         if (active) break;
 
         if (node?.dataset?.preview) {
             let result = null
     
+            // Find the corresponding book data using its ID
             for (const singleBook of books) {
                 if (result) break;
                 if (singleBook.id === node?.dataset?.preview) result = singleBook
@@ -142,6 +146,7 @@ export const handleListItemOnClick = (event) => {
         };
     };
     
+    // If a book is found, update the active book display
     if (active) {
         htmlElements.list.dataListActive.open = true;
         htmlElements.list.dataListBlur.src = active.image;
